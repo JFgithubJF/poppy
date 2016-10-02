@@ -57,7 +57,7 @@ class QuadPhase(poppy.optics.AnalyticOpticalElement):
             a Fresnel Wavefront object
         """
 
-        print 'Fail to override get_phasor'
+        print('Fail to override get_phasor')
         y, x = wave.coordinates()
         rsqd = (x ** 2 + y ** 2) * u.m ** 2
         _log.debug("Applying spherical phase curvature ={0:0.2e}".format(self.z))
@@ -121,7 +121,7 @@ class GeneralLens(QuadPhase):
         This function is suppose to override the get_phaser in QuadPhase
         """
         
-        print 'Sucessfully override get_phasor'
+        print('Sucessfully override get_phasor')
         y, x = wave.coordinates()
         rsqd = (x ** 2 + y ** 2) * u.m ** 2
         _log.debug("Applying spherical phase curvature ={0:0.2e}".format(self.z))
@@ -976,6 +976,7 @@ class FresnelWavefront(Wavefront):
                 z_eff = 1.0 / (1.0 / optic.fl - 1.0 / r_input_beam)
                 self.spherical = False
 
+        print(z_eff)
         # Apply phase to the wavefront array
         effective_optic = QuadPhase(-z_eff, name=optic.name)
         self *= effective_optic
