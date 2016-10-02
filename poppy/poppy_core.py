@@ -282,14 +282,14 @@ class Wavefront(object):
         outFITS[0].header['OVERSAMP'] = (self.oversample, 'Oversampling factor for FFTs in computation')
         outFITS[0].header['DET_SAMP'] = (self.oversample, 'Oversampling factor for MFT to detector plane')
         if self.planetype ==_IMAGE:
-            outFITS[0].header['PIXELSCL'] = (self.pixelscale.to(u.arcsec/u.pixel).value,
-                                             'Scale in arcsec/pix (after oversampling)')
+#            outFITS[0].header['PIXELSCL'] = (self.pixelscale.to(u.arcsec/u.pixel).value,
+#                                             'Scale in arcsec/pix (after oversampling)')
             fov_arcsec = self.fov.to(u.arcsec).value
-            if np.isscalar(fov_arcsec):
-                outFITS[0].header['FOV'] = (fov_arcsec, 'Field of view in arcsec (full array)')
-            else:
-                outFITS[0].header['FOV_X'] = (fov_arcsec[1], 'Field of view in arcsec (full array), X direction')
-                outFITS[0].header['FOV_Y'] = (fov_arcsec[0], 'Field of view in arcsec (full array), Y direction')
+#            if np.isscalar(fov_arcsec):
+#                outFITS[0].header['FOV'] = (fov_arcsec, 'Field of view in arcsec (full array)')
+#            else:
+#                outFITS[0].header['FOV_X'] = (fov_arcsec[1], 'Field of view in arcsec (full array), X direction')
+#                outFITS[0].header['FOV_Y'] = (fov_arcsec[0], 'Field of view in arcsec (full array), Y direction')
         else:
             outFITS[0].header['PIXELSCL'] = (self.pixelscale.to(u.meter/u.pixel).value, 'Pixel scale in meters/pixel')
             outFITS[0].header['DIAM'] =  (self.diam.to(u.meter).value, 'Pupil diameter in meters (not incl padding)')
