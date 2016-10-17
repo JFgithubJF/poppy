@@ -93,12 +93,14 @@ from . import optics
 from . import misc
 from . import fresnel
 from . import wfe
+from . import misalignment
 
 from .poppy_core import *
 from .utils import *
 from .optics import *
 from .wfe import *
 from .fresnel import *
+from .misalignment import *
 
 from .instrument import Instrument
 
